@@ -32,7 +32,7 @@ define(function(require, exports, module){
             }, 900);
         });
 
-        it('mask default attrs', function(done){
+        it('mask default styles', function(done){
             mask.show();
             var color = mask.element.css('backgroundColor');
             equals(color === 'rgb(0, 0, 0)' || color === '#000', true);
@@ -42,11 +42,9 @@ define(function(require, exports, module){
             }, 500);
         });
 
-        it('mask set attrs', function(){
-            mask.set('backgroundColor', 'green').set('opacity', '0.3').show();
-            var color = mask.element.css('backgroundColor');
-            equals(color === 'rgb(0, 128, 0)' || color === 'green', true);
-            equals(Number(mask.element.css('opacity')).toFixed(1), '0.3');
+        it('mask className', function(){
+            mask.set('className', 'ui-mask').show();
+            equals($('.ui-mask').length, 1);
         });
 
         it('mask single instance', function(){

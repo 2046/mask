@@ -3,20 +3,14 @@
 var Mask, Widget, isIE6, tpl, style;
 
 Widget = require('widget');
-tpl = require('./mask.tpl');
 style = require('./mask.style');
 isIE6 = (window.navigator.userAgent || '').toLowerCase().indexOf('msie 6') !== -1;
 
 Mask = Widget.extend({
     attrs : {
-        width : null,
-        height : null,
         styles : style,
-        opacity : null,
         visible : false,
-        template : tpl,
-        className : null,
-        backgroundColor : null
+        className : null
     },
     show : function(){
         if(!this.rendered){
@@ -32,18 +26,6 @@ Mask = Widget.extend({
     hide : function(){
         this.set('visible', false);
         return this;
-    },
-    _onChangeWidth : function(val){
-        this.element.css('width', val);
-    },
-    _onChangeHeight : function(val){
-        this.element.css('height', val);
-    },
-    _onChangeOpacity : function(val){
-        this.element.css('opacity', val);
-    },
-    _onChangeBackgroundColor : function(val){
-        this.element.css('backgroundColor', val);
     },
     _onChangeClassName : function(val){
         this.element.addClass(val);
