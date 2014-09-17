@@ -15,10 +15,12 @@ Mask = Widget.extend({
         opacity : null,
         visible : false,
         template : tpl,
-        className : 'ui-mask',
+        className : null,
         backgroundColor : null
     },
     show : function(){
+        var className;
+
         if(!this.rendered){
             this.render();
             this.element.addClass(this.get('className'));
@@ -44,6 +46,9 @@ Mask = Widget.extend({
     },
     _onChangeBackgroundColor : function(val){
         this.element.css('backgroundColor', val);
+    },
+    _onChangeClassName : function(val){
+        this.element.addClass(val);
     },
     _onChangeVisible : function(val){
         this.element[val ? 'fadeIn' : 'fadeOut']();
