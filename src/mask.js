@@ -19,8 +19,6 @@ Mask = Widget.extend({
         backgroundColor : null
     },
     show : function(){
-        var className;
-
         if(!this.rendered){
             this.render();
             this.element.addClass(this.get('className'));
