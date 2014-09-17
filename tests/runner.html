@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <title>Mask Test Runner</title>
+    <link rel="stylesheet" href="../../lib/mocha/mocha.css">
+    <script src="../../lib/seajs/sea.js"></script>
+    <script src="../../lib/mocha/mocha.js"></script>
+    <script src="../../lib/jquery/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <div id="mocha"></div>
+
+    <script>
+        seajs.config({
+            base : '/',
+            alias : {
+                'expect' : 'lib/expect/expect.js',
+                'sinon' : 'lib/sinon/sinon-1.7.1.js',
+                'class' : 'lib/class/dist/class.js',
+                'events' : 'lib/events/dist/events.js',
+                'base' : 'lib/base/dist/base.js',
+                'widget' : 'lib/widget/dist/widget.js',
+                'mask' : 'dist/mask.js'
+            }
+        });
+
+        mocha.setup('bdd');
+
+        seajs.use(['./mask-test.js'], function(){
+            mocha.run();
+        });
+    </script>
+</body>
+</html>
