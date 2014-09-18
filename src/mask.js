@@ -12,14 +12,16 @@ Mask = Widget.extend({
         visible : false,
         className : null
     },
+    init : function(){
+        this.element.addClass(this.get('className'));
+        isIE6 && this.element.css('position', 'absolute');
+        isIE6 && this.set('height', $(document).outerHeight(true));
+    },
     show : function(){
         if(!this.rendered){
             this.render();
-            this.element.addClass(this.get('className'));
         }
 
-        isIE6 && this.element.css('position', 'absolute');
-        isIE6 && this.set('height', $(document).outerHeight(true));
         this.set('visible', true);
         return this;
     },
