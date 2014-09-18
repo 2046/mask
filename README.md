@@ -38,7 +38,7 @@ var mask = require('mask');
 mask.hide();
 ```
 
-###className ``mask.set('className', 'ui-mask')``
+###className属性 ``mask.set('className', 'ui-mask')``
 
 给遮罩层添加 class
 
@@ -46,4 +46,19 @@ mask.hide();
 var mask = require('mask');
 
 mask.set('className', 'ui-mask');
+console.log(mask.element.hasClass('ui-mask')); // true
+```
+
+###visible属性 ``mask.get('visible')``
+
+判断遮罩层是否显示
+
+```
+var mask = require('mask');
+
+mask.show();
+console.log(mask.get('visible')); // true
+
+mask.hide();
+console.log(mask.get('visible')); // false
 ```
