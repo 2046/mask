@@ -1,14 +1,14 @@
 'use strict'
 
-var Mask, Widget, isIE6, tpl, style;
+var Mask, Widget, isIE6, tpl, styles;
 
 Widget = require('widget');
-style = require('./mask.style');
+styles = require('./mask.style');
 isIE6 = (window.navigator.userAgent || '').toLowerCase().indexOf('msie 6') !== -1;
 
 Mask = Widget.extend({
     attrs : {
-        styles : style,
+        styles : styles,
         visible : false,
         className : null
     },
