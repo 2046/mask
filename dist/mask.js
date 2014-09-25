@@ -9,9 +9,7 @@ define(function(require, exports, module){
     
     Mask = Widget.extend({
         attrs : {
-            styles : styles,
-            visible : false,
-            className : null
+            styles : styles
         },
         init : function(){
             isIE6 && this.element.css('position', 'absolute');
