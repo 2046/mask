@@ -1,6 +1,6 @@
 'use strict'
 
-var Mask, Widget, isIE6, tpl, styles;
+var Mask, Widget, isIE6, styles;
 
 Widget = require('widget');
 styles = require('./mask.style');
