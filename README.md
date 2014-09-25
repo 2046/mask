@@ -20,7 +20,7 @@ require(['mask'], function(mask){
 
 ###show ``mask.show()``
 
-显示遮罩层
+显示遮罩层，继承自 Widget
 
 ```
 var mask = require('mask');
@@ -30,7 +30,7 @@ mask.show();
 
 ###hide ``mask.hide()``
 
-隐藏遮罩层
+隐藏遮罩层，继承自 Widget
 
 ```
 var mask = require('mask');
@@ -40,7 +40,7 @@ mask.hide();
 
 ###className属性 ``mask.set('className', 'ui-mask')``
 
-给遮罩层添加 class
+给遮罩层添加 class，继承自 Widget
 
 ```
 var mask = require('mask');
@@ -51,7 +51,7 @@ console.log(mask.element.hasClass('ui-mask')); // true
 
 ###visible属性 ``mask.get('visible')``
 
-判断遮罩层是否显示
+判断遮罩层是否显示，继承自 Widget
 
 ```
 var mask = require('mask');
