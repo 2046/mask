@@ -1,6 +1,6 @@
 #Mask
 
-全屏遮罩层组件，这是一个单列组件，继承自 Widget。
+全屏遮罩层组件，这是一个单列组件，继承自 Overlay。
 
 ##使用
 
@@ -20,7 +20,7 @@ require(['mask'], function(mask){
 
 ###show ``mask.show()``
 
-显示遮罩层，继承自 Widget
+显示遮罩层
 
 ```
 var mask = require('mask');
@@ -30,7 +30,7 @@ mask.show();
 
 ###hide ``mask.hide()``
 
-隐藏遮罩层，继承自 Widget
+隐藏遮罩层
 
 ```
 var mask = require('mask');
@@ -40,7 +40,7 @@ mask.hide();
 
 ###className属性 ``mask.set('className', 'ui-mask')``
 
-给遮罩层添加 class，继承自 Widget
+给遮罩层添加 class
 
 ```
 var mask = require('mask');
@@ -51,7 +51,7 @@ console.log(mask.element.hasClass('ui-mask')); // true
 
 ###visible属性 ``mask.get('visible')``
 
-判断遮罩层是否显示，继承自 Widget
+判断遮罩层是否显示
 
 ```
 var mask = require('mask');
