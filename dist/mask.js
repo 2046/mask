@@ -1,19 +1,37 @@
 define(function(require, exports, module){
     'use strict'
     
-    var Mask, Widget, isIE6, styles;
+    var Mask, Overlay, isIE6;
     
-    Widget = require('widget');
-    styles = require('./mask.style');
+    Overlay = require('overlay');
     isIE6 = (window.navigator.userAgent || '').toLowerCase().indexOf('msie 6') !== -1;
     
-    Mask = Widget.extend({
+    Mask = Overlay.extend({
         attrs : {
-            styles : styles
+            width : '100%',
+            height : '100%',
+            zIndex : 998,
+            position : 'fixed',
+            style : {
+                top : 0,
+                left : 0,
+                opacity : 0.2,
+                backgroundColor : '#000'
+            }
         },
-        init : function(){
-            isIE6 && this.element.css('position', 'absolute');
-            isIE6 && this.set('height', $(document).outerHeight(true));
+        _onRenderPosition : function(val){
+            if(isIE6){
+                val = 'absolute';
+            }
+    
+            this.element.css('position', val);
+        },
+        _onRenderHeight : function(val){
+            if(isIE6){
+                val = $(document).outerHeight(true);
+            }
+    
+            this.element.css('height', val);
         }
     });
     

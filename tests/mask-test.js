@@ -22,7 +22,7 @@ define(function(require, exports, module){
             mask.hide();
         });
 
-        it('mask show', function(done){
+        it('mask show & hide', function(done){
             mask.show();
             expect(mask.element.is(':visible')).to.be.ok();
             mask.hide();
@@ -32,19 +32,15 @@ define(function(require, exports, module){
             }, 900);
         });
 
-        it('mask default styles', function(done){
+        it('mask default style', function(){
             mask.show();
-            var color = mask.element.css('backgroundColor');
-            equals(color === 'rgb(0, 0, 0)' || color === '#000', true);
-            setTimeout(function(){
-                equals(Number(mask.element.css('opacity')).toFixed(1), '0.2');
-                done();
-            }, 500);
+            expect(['#000', 'rgb(0, 0, 0)']).to.contain(mask.element.css('backgroundColor'));
+            equals(mask.element.css('zIndex') * 1, 998);
         });
 
         it('mask className', function(){
             mask.set('className', 'ui-mask').show();
-            equals($('.ui-mask').length, 1);
+            equals(mask.element.hasClass('ui-mask'), true);
         });
 
         it('mask single instance', function(){
