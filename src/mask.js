@@ -10,27 +10,24 @@ Mask = Overlay.extend({
         width : '100%',
         height : '100%',
         zIndex : 998,
-        position : 'fixed',
         style : {
+            position : isIE6 ? 'absolute' : 'fixed',
             top : 0,
             left : 0,
             opacity : 0.2,
             backgroundColor : '#000'
         }
     },
-    _onRenderPosition : function(val){
-        if(isIE6){
-            val = 'absolute';
-        }
-
-        this.element.css('position', val);
-    },
     _onRenderHeight : function(val){
-        if(isIE6){
-            val = $(document).outerHeight(true);
-        }
+        var ctx = this;
 
-        this.element.css('height', val);
+        if(!isIE6){
+            ctx.element.css('height', val);
+        }else{
+            setTimeout(function(){
+                ctx.element.css('height', $(document).outerHeight(true));
+            }, 0);
+        }
     }
 });
 
